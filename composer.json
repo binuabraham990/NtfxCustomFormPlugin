@@ -1,0 +1,19 @@
+{
+    "name": "swag/plugin-skeleton",
+    "description": "Custom Form Plugin",
+    "type": "shopware-platform-plugin",
+    "license": "MIT",
+    "version": "1.0.0",
+    "autoload": {
+        "psr-4": {
+            "NtfxCustomFormPlugin\\": "src/"
+        }
+    },
+    "extra": {
+        "shopware-plugin-class": "NtfxCustomFormPlugin\\NtfxCustomFormPlugin",
+        "label": {
+            "de-DE": "Custom Form Plugin",
+            "en-GB": "Custom Form Plugin"
+        }
+    }
+}
