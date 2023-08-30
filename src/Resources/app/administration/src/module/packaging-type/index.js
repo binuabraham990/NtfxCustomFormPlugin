@@ -17,11 +17,18 @@ Shopware.Module.register('packaging-type', {
         'en-GB': enGB
     },
     routes: {
-        list: {
+        index: {
             component: 'packaging-type-list',
-            path: 'list',
+            path: 'index',
             meta: {
                 parentPath: 'sw.settings.index'
+            }
+        },
+        create: {
+            component: 'packaging-type-create',
+            path: 'create',
+            meta:   {
+                parentPath: 'packaging.type.index',
             }
         }
     },
@@ -29,7 +36,7 @@ Shopware.Module.register('packaging-type', {
     settingsItem: [
         {
             name: 'packaging-type',
-            to: 'packaging-type.list',
+            to: 'packaging.type.index',
             icon: 'regular-bars',
             label: 'packaging-type.title',
             group: 'plugins'

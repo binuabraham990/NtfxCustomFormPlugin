@@ -1,5 +1,12 @@
 {
     "packaging-type": {
-        "title": "Packaging Type"
+        "title": "Packaging Type",
+        "general": {
+            "placeholderSearchBar": "Packaging Type"
+        },
+        "list": {
+            "textHeadline": "List",
+            "buttonAddTax": "Create"
+        }
     }
 }

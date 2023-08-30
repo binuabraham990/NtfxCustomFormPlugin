@@ -11,6 +11,13 @@ Component.register('packaging-type-list', {
     mixins: [
         Mixin.getByName('notification'),
     ],
+
+    data() {
+        return {
+            term: '',
+        }
+    },
+
     created() {
         this.createdComponent();
     },
@@ -38,6 +45,14 @@ Component.register('packaging-type-list', {
         createdComponent() {
             console.log('here we go');
             return false;
+        },
+        onSearch()  {
+            console.log('clicked on search');
+            return false;
+        },
+        onChangeLanguage(languageId) {
+            Shopware.State.commit('context/setApiLanguageId', languageId);
+            this.getList();
         },
     }
 });

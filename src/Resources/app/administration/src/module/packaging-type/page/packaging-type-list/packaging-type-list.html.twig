@@ -1,14 +1,64 @@
 {% block packaging_type_list %}
-    <sw-page class="packaging-type">
-        <template slot="smart-bar-header">
-            <h2>Packaging Type</h2>
-        </template>
+    {% block packaging_type_index %}
+        <sw-page class="packaging-type">
+            {% block packaging_type_list_search_bar %}
+                <template #search-bar>
+                    <sw-search-bar
+                        initial-search-type="package-type"
+                        :placeholder="$tc('packaging-type.general.placeholderSearchBar')"
+                        :initial-search="term"
+                        @search="onSearch"
+                        />
+                </template>
+            {% endblock %}
 
-        <template slot="content">
-            Content comes here
-        </template>
+            {% block packaging_type_list_smart_bar_header %}
+                <template #smart-bar-header>
+                    <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+                    {% block packaging_type_list_smart_bar_header_title %}
+                        <h2>
+                            <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+                            {% block packaging_type_list_smart_bar_header_title_text %}
+                                {{ $tc('packaging-type.title') }} <sw-icon
+                                    name="regular-chevron-right-xs"
+                                    small
+                                    /> {{ $tc('packaging-type.list.textHeadline') }}
+                            {% endblock %}
 
-        <template slot="smart-bar-actions">
-        </template>
-    </sw-page>
+                            <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+                            {% block packaging_type_list_smart_bar_header_amount %}
+                                {#<span
+                                    v-if="!isLoading"
+                                    class="sw-page__smart-bar-amount"
+                                    >
+                                    ({{ total }})
+                                </span>#}
+                            {% endblock %}
+                        </h2>
+                    {% endblock %}
+                </template>
+            {% endblock %}
+
+            {% block packaging_type_list_smart_bar_actions %}
+                <template #smart-bar-actions>
+                    <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+                    {% block packaging_type_list_smart_bar_actions_add %}
+                        <sw-button
+                            class="packaging-type-list__button-create"
+                            variant="primary"
+                            :router-link="{ name: 'packaging.type.create' }"
+                            >
+                            {{ $tc('packaging-type.list.buttonAddTax') }}
+                        </sw-button>
+                    {% endblock %}
+                </template>
+            {% endblock %}
+
+            <template #language-switch>
+                <sw-language-switch
+                    @on-change="onChangeLanguage"
+                    />
+            </template>
+        </sw-page>
+    {% endblock %}
 {% endblock %}
